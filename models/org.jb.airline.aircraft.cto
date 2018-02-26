@@ -1,0 +1,17 @@
+namespace org.jb.airline.aircraft
+
+asset Aircraft identified by aircraftId {
+  o String aircraftId
+  o Ownership ownershipType
+
+  // Number of seat per class
+  o Integer firstClassSeats
+  o Integer businessClassSeats
+  o Integer economyClassSeats
+
+}
+
+enum Ownership {
+  o LEASED
+  o OWNED
+}

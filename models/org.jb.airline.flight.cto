@@ -1,0 +1,16 @@
+namespace org.jb.airline.flight
+
+import org.jb.airline.aircraft.Aircraft
+
+asset Flight identified by flightNumber {
+  o String flightNumber
+  o Route route
+  o String[] aliasFlightNumber
+  --> Aircraft aircraft optional
+}
+
+concept Route {
+  o String origin
+  o String distination
+  o DateTime schedule
+}
