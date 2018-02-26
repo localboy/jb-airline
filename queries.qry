@@ -1,0 +1,50 @@
+// Return all flights
+query AllFlights {
+  description: "Return all the flights in the registry"
+  statement:
+    SELECT org.jb.airline.flight.Flight
+}
+
+// Use the limit and skip
+query AllFlightSkipLimit {
+  description: "Limit the number of flight returned"
+  statement:
+    SELECT org.jb.airline.flight.Flight
+      LIMIT _$limit
+        SKIP _$skip
+}
+
+// Select flight based on origin and destination
+query FlightOriginAndDestination {
+  description: "Returned flight baded on origin and destination"
+  statement:
+    SELECT org.jb.airline.flight.Flight
+      WHERE (route.origin == _$origin_airport AND route.destination == _$destination_airport)
+}
+
+// Return all aircrafts
+query AllAircrafts {
+  description: "Return all the aircrafts in the registry"
+  statement:
+    SELECT org.jb.airline.aircraft.Aircraft
+}
+
+// Return aircrafts based on owner type
+query AircraftBasedOwner {
+  description: "Return aircrafts based on owner type"
+  statement:
+    SELECT org.jb.airline.aircraft.Aircraft
+      WHERE (ownershipType == _$ownership_type)
+}
+
+// Filter by seats
+query FilterBySeats {
+  description: "Return aircrafts filter by count of seats"
+  statement:
+    SELECT org.jb.airline.aircraft.Aircraft
+      WHERE (
+        firstClassSeats >= _$first_class_seats
+        AND businessClassSeats >= _$business_class_seats
+        AND economyClassSeats >= _$economy_class_seats
+        )
+}
