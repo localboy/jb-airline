@@ -1,0 +1,24 @@
+namespace org.jb.airline.participant
+
+abstract participant JBParticipant identified by participantKey {
+  o String participantKey
+  o Contact contact
+}
+
+concept Contact {
+  o String fname
+  o String lname
+  o String email
+}
+
+participant JBNetworkAdmin extends JBParticipant {
+
+}
+
+participant JBPersonnel extends JBParticipant {
+  o String department
+}
+
+participant B2BPartner extends JBParticipant {
+
+}
