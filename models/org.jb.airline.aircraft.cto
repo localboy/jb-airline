@@ -5,9 +5,9 @@ asset Aircraft identified by aircraftId {
   o Ownership ownershipType
 
   // Number of seat per class
-  o Integer firstClassSeats
-  o Integer businessClassSeats
-  o Integer economyClassSeats
+  o Integer firstClassSeats range = [4,]
+  o Integer businessClassSeats range = [6, 20]
+  o Integer economyClassSeats range = [30,]
 
 }
 
