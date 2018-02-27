@@ -1,0 +1,15 @@
+rule NetworkControlPermission {
+  description: "Give admin all acceess to system resource"
+  participant: "org.hyperledger.composer.system.NetworkAdmin"
+  operation: ALL
+  resource: "org.hyperledger.composer.system.*"
+  action: ALLOW
+}
+
+rule PerticipantRegistryControlPermission {
+  description: "Give admin all acceess to JB Airline participant types"
+  participant: "org.hyperledger.composer.system.NetworkAdmin"
+  operation: ALL
+  resource: "org.jb.airline.participant.*"
+  action: ALLOW
+}
