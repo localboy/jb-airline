@@ -13,3 +13,18 @@ rule PerticipantRegistryControlPermission {
   resource: "org.jb.airline.participant.*"
   action: ALLOW
 }
+
+rule JBNetworkAdminPermissionSystem {
+  description: "Give read acceess to all JB Airline participants"
+  participant: "org.jb.airline.participant.*"
+  operation: READ
+  resource: "org.hyperledger.composer.system.*"
+  action: ALLOW
+}
+rule JBNetworkAdminPermission {
+  description: "Give admin all acceess to JB Airline participant types"
+  participant: "org.jb.airline.participant.JBNetworkAdmin"
+  operation: READ
+  resource: "org.jb.airline.**"
+  action: ALLOW
+}
