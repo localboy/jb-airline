@@ -29,3 +29,13 @@ rule JBNetworkAdminPermission {
   resource: "org.jb.airline.**"
   action: ALLOW
 }
+
+rule JBPersonnelPermission {
+  description: "Only JB Personnel can create a flight"
+  participant(p): "org.jb.airline.participant.JBPersonnel"
+  operation: CREATE
+  resource: "org.jb.airline.flight.*"
+  transaction: "org.jb.airline.flight.CreateFlight"
+  condition: (p.department == "Logistics")
+  action: ALLOW
+}
